@@ -2,7 +2,9 @@
 
 [![Build and test status](https://github.com/roatanrich/annunaki-brewing.git/workflows/Lint%20and%20test/badge.svg)](https://github.com/roatanrich/annunaki-brewing.git/actions?query=workflow%3A%22Build+and+test%22)
 
-A future endeavor to startup a brewery using this app for inventory, recipe creation, maintaining brew batches. This project was written using Node.js and Typescript.
+A future endeavor to startup a brewery using this app for inventory, recipe creation, and maintaining brew batches.
+
+This project was written using Node.js and Typescript.
 
 ## Technologies Used
 
@@ -12,4 +14,6 @@ This project was cloned from here: **[Starting a TypeScript Project in 2021](htt
 
 You can generate a full clean build with `yarn build-all` (which uses both `tsc` and `esbuild`).
 
-remember rm -rf run on the github side, use del /q for local windows deletions
+```
+remember rm -rf runs on the github side, use del /q for local windows deletions
+```
