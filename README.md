@@ -11,3 +11,5 @@ A future endeavor to startup a brewery using this app for inventory, recipe crea
 This project was cloned from here: **[Starting a TypeScript Project in 2021](https://www.metachris.com/2021/04/starting-a-typescript-project-in-2021/)**.
 
 You can generate a full clean build with `yarn build-all` (which uses both `tsc` and `esbuild`).
+
+remember rm -rf run on the github side, use del /q for local windows deletions
