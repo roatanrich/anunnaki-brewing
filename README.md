@@ -2,17 +2,13 @@
 
 [![Build and test status](https://github.com/roatanrich/annunaki-brewing.git/workflows/Lint%20and%20test/badge.svg)](https://github.com/roatanrich/annunaki-brewing.git/actions?query=workflow%3A%22Build+and+test%22)
 
-TypeScript project boilerplate with modern tooling, for Node.js programs, libraries and browser modules. Get started quickly and right-footed 🚀
+A future endeavor to startup a brewery using this app for inventory, recipe creation, maintaining brew batches. This project was written using Node.js and Typescript.
 
-- [TypeScript 4](https://www.typescriptlang.org/)
-- Optionally [esbuild](https://esbuild.github.io/) to bundle for browsers (and Node.js)
-- Linting with [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) ([tslint](https://palantir.github.io/tslint/) is deprecated)
-- Testing with [Jest](https://jestjs.io/docs/getting-started) (and [ts-jest](https://www.npmjs.com/package/ts-jest))
-- Publishing to npm
-- Continuous integration ([GitHub Actions](https://docs.github.com/en/actions) / [GitLab CI](https://docs.gitlab.com/ee/ci/))
-- Automatic API documentation with [TypeDoc](https://typedoc.org/guides/doccomments/)
+## Technologies Used
 
-See also the introduction blog post: **[Starting a TypeScript Project in 2021](https://www.metachris.com/2021/03/bootstrapping-a-typescript-node.js-project/)**.
+- [TypeScript 4](https://www.typescriptlang.org/), [esbuild](https://esbuild.github.io/), [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint), , [Jest](https://jestjs.io/docs/getting-started), ([GitHub Actions](https://docs.github.com/en/actions), [GitLab CI](https://docs.gitlab.com/ee/ci/)), [TypeDoc](https://typedoc.org/guides/doccomments/)
+
+This project was cloned from here: **[Starting a TypeScript Project in 2021](https://www.metachris.com/2021/04/starting-a-typescript-project-in-2021/)**.
 
 ## Getting Started
 
