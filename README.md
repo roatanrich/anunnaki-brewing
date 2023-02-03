@@ -6,7 +6,7 @@ A future endeavor to startup a brewery using this app for inventory, recipe crea
 
 ## Technologies Used
 
-- [TypeScript 4](https://www.typescriptlang.org/), [esbuild](https://esbuild.github.io/), [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint), , [Jest](https://jestjs.io/docs/getting-started), ([GitHub Actions](https://docs.github.com/en/actions), [GitLab CI](https://docs.gitlab.com/ee/ci/)), [TypeDoc](https://typedoc.org/guides/doccomments/)
+- [TypeScript 4](https://www.typescriptlang.org/), [esbuild](https://esbuild.github.io/), [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint), [Jest](https://jestjs.io/docs/getting-started), ([GitHub Actions](https://docs.github.com/en/actions), [GitLab CI](https://docs.gitlab.com/ee/ci/), [TypeDoc](https://typedoc.org/guides/doccomments/), [Morgan](https://www.npmjs.com/package/@types/morgan)
 
 This project was cloned from here: **[Starting a TypeScript Project in 2021](https://www.metachris.com/2021/04/starting-a-typescript-project-in-2021/)**.
 
