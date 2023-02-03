@@ -22,6 +22,7 @@
     "cli": "ts-node src/cli.ts",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
+    "kill": "del /q node_modules",
     "clean": "del /q dist build package",
     "ts-node": "ts-node",
     "docs": "typedoc --entryPoints src/main.ts",
