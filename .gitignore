@@ -9,6 +9,6 @@
 coverage
 *.log
 /logs/
-.vscode
+/vscode/
 yarn.lock
 package-lock.json
