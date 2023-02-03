@@ -1,6 +1,6 @@
 # Annunaki Brewing
 
-[![Build and test status](https://github.com/roatanrich/annunaki-brewing.git/workflows/Lint%20and%20test/badge.svg)](https://github.com/roatanrich/annunaki-brewing.git/actions?query=workflow%3A%22Build+and+test%22)
+[![Lint and test](https://github.com/roatanrich/annunaki-brewing/actions/workflows/lint-and-test.yml/badge.svg)](https://github.com/roatanrich/annunaki-brewing/actions/workflows/lint-and-test.yml)
 
 A future endeavor to startup a brewery using this app for inventory, recipe creation, and maintaining brew batches.
 
