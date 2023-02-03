@@ -6,7 +6,7 @@ A future endeavor to startup a brewery using this app for inventory, recipe crea
 
 ## Technologies Used
 
-- [TypeScript 4](https://www.typescriptlang.org/), [esbuild](https://esbuild.github.io/), [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint), [Jest](https://jestjs.io/docs/getting-started), ([GitHub Actions](https://docs.github.com/en/actions), [GitLab CI](https://docs.gitlab.com/ee/ci/), [TypeDoc](https://typedoc.org/guides/doccomments/), [Morgan](https://www.npmjs.com/package/@types/morgan)
+- [TypeScript 4](https://www.typescriptlang.org/), [esbuild](https://esbuild.github.io/), [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint), [Jest](https://jestjs.io/docs/getting-started), [GitHub Actions](https://docs.github.com/en/actions), [GitLab CI](https://docs.gitlab.com/ee/ci/), [TypeDoc](https://typedoc.org/guides/doccomments/), [Morgan](https://www.npmjs.com/package/@types/morgan)
 
 This project was cloned from here: **[Starting a TypeScript Project in 2021](https://www.metachris.com/2021/04/starting-a-typescript-project-in-2021/)**.
 
@@ -97,20 +97,3 @@ You can publish the documentation through CI:
 - [GitLab pages](https://docs.gitlab.com/ee/user/project/pages/): [`.gitlab-ci.yml`](https://github.com/metachris/typescript-boilerplate/blob/master/.gitlab-ci.yml)
 
 This is the documentation for this boilerplate project: https://metachris.github.io/typescript-boilerplate/
-
-## References
-
-- **[Blog post: Starting a TypeScript Project in 2021](https://www.metachris.com/2021/03/bootstrapping-a-typescript-node.js-project/)**
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-- [tsconfig docs](https://www.typescriptlang.org/tsconfig)
-- [esbuild docs](https://esbuild.github.io/)
-- [typescript-eslint docs](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md)
-- [Jest docs](https://jestjs.io/docs/getting-started)
-- [GitHub Actions](https://docs.github.com/en/actions), [GitLab CI](https://docs.gitlab.com/ee/ci/)
-
-## Feedback
-
-Reach out with feedback and ideas:
-
-- [twitter.com/metachris](https://twitter.com/metachris)
-- [Create a new issue](https://github.com/metachris/typescript-boilerplate/issues)
