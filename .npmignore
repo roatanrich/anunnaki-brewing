@@ -5,7 +5,7 @@
 /tmp/
 .idea/*
 /docs/
-
+/logs/
 coverage
 *.log
 .gitlab-ci.yml
