@@ -50,5 +50,9 @@
   },
   "peerDependencies": {
     "typescript": ">= 3.0.0"
+  },
+  "dependencies": {
+    "camadb": "^2.0.0",
+    "reflect-metadata": "^0.1.13"
   }
 }
