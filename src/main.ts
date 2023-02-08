@@ -1,8 +1,8 @@
 import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
-import Logger from "./lib/logger";
 import morganMiddleware from './config/morganMiddleware'
+import Logger from "./lib/logger"
 
 export const delayMillis = (delayMs: number): Promise<void> => new Promise(resolve => setTimeout(resolve, delayMs));
 
@@ -17,7 +17,7 @@ export const foo = async (): Promise<boolean> => {
 
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -39,5 +39,6 @@ app.get("/logger", (_, res) => {
 });
 
 app.listen(PORT, () => {
-  Logger.debug(`Server is up and running @ http://localhost:${PORT}`);
+  Logger.debug(`${process.env.MESSAGE} http://localhost:${PORT}`);
+  Logger.debug(`Environment: ${process.env.NODE_ENV}`);
 });
