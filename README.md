@@ -1,4 +1,4 @@
-# Annunaki Brewing
+# Anunnaki Brewing
 
 [![Build Lint Test](https://github.com/roatanrich/annunaki-brewing/actions/workflows/build-lint-test.yml/badge.svg)](https://github.com/roatanrich/annunaki-brewing/actions/workflows/build-lint-test.yml)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
