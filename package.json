@@ -1,15 +1,15 @@
 {
-  "name": "annunaki-brewing",
+  "name": "anunnaki-brewing",
   "version": "0.0.1",
   "description": "Application for a future brewery written in node.js and Typescript",
   "author": "Rich Henry <architect.rich.henry@gmail.com>",
-  "repository": "https://github.com/roatanrich/annunaki-brewing",
+  "repository": "https://github.com/roatanrich/anunnaki-brewing",
   "license": "MIT",
   "keywords": [
     "typescript",
     "brewing",
     "node",
-    "annunaki"
+    "anunnaki"
   ],
   "main": "./dist/tsc/main.js",
   "types": "./dist/tsc/main.d.ts",
@@ -56,7 +56,8 @@
     "reflect-metadata": "^0.1.13",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.0",
-    "winston": "^3.8.2"
+    "winston": "^3.8.2",
+    "zod": "^3.20.5"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"

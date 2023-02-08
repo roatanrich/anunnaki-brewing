@@ -2,9 +2,9 @@ import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
 import morganMiddleware from './config/morganMiddleware'
+import swaggerConfig from './config/swaggerConfig'
 import Logger from "./lib/logger"
 import hopRouter from './routes/hopRoutes'
-import  swaggerDoc  from '../swaggerDoc'
 
 const app = express()
 
@@ -14,7 +14,7 @@ app.use(cors());
 app.use(morganMiddleware)
 app.use(hopRouter)
 
-swaggerDoc(app)
+swaggerConfig(app)
 
 app.get("/", (_, res) => {  
   res.redirect(`http://localhost:${process.env.PORT}/ping`);
