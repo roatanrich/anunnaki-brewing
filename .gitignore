@@ -1,15 +1,15 @@
+/.vscode/*
 /node_modules/
 /build/
 /lib/
 /dist/
 /docs/
+/logs/*
 .idea/*
-/.vscode/
 
 .DS_Store
 coverage
 *.log
-/logs/*
 
 yarn.lock
 package-lock.json

@@ -2,13 +2,13 @@ import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
 import fs from 'fs'
+import swaggerUi from 'swagger-ui-express'
+import hops from '../data/sample/hops'
+import swaggerDocument from '../swagger.json'
 import morganMiddleware from './config/morganMiddleware'
 import Logger from "./lib/logger"
-import swaggerUi from 'swagger-ui-express'
-import swaggerDocument from '../swagger.json'
 
 const app = express()
-const PORT = process.env.PORT
 
 const customCss = fs.readFileSync((process.cwd() + "/swagger.css"), 'utf8');
 
@@ -19,7 +19,16 @@ app.use(morganMiddleware)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { customCss }));
 
 app.get("/", (_, res) => {  
-  res.redirect(`http://localhost:${PORT}/logger`);
+  res.redirect(`http://localhost:${process.env.PORT}/logger`);
+});
+
+app.get('/api/hops', (_, res) => {
+    res.json(hops);
+});
+
+app.get('/api/hops/:name', (req, res) => {
+  const result = hops.filter(x => x.name == req.params.name)
+  res.json(result)
 });
 
 app.get("/logger", (_, res) => {
@@ -32,7 +41,7 @@ app.get("/logger", (_, res) => {
   res.send("Hello world");
 });
 
-app.listen(PORT, () => {
-  Logger.debug(`${process.env.MESSAGE} http://localhost:${PORT}`);
+app.listen(process.env.PORT, () => {
+  Logger.debug(`${process.env.MESSAGE} http://localhost:${process.env.PORT}`);
   Logger.debug(`Environment: ${process.env.NODE_ENV}`);
 });
