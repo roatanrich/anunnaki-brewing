@@ -4,11 +4,12 @@
 /dist/
 /docs/
 .idea/*
+/.vscode/
 
 .DS_Store
 coverage
 *.log
 /logs/*
-/vscode/
+
 yarn.lock
 package-lock.json
