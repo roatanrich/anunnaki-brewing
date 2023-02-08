@@ -16,10 +16,10 @@
   "host": "localhost:3000",
   "basePath": "/api",
   "paths": {
-    "/todos": {
+    "/hops": {
       "get": {
-        "summary": "Get all the tasks",
-        "description": "Get all the tasks",
+        "summary": "Get all the hops",
+        "description": "Get all the hops",
         "produces": ["application/json"],
         "parameters": [],
         "responses": {
