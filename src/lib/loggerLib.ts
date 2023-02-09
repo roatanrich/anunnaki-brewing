@@ -34,7 +34,7 @@ const format = winston.format.combine(
   ),
 )
 
-const transport: DailyRotateFile = new DailyRotateFile({
+const dailyFileTransport: DailyRotateFile = new DailyRotateFile({
     filename: 'logs/%DATE%.log',
     datePattern: 'YYYY-MM-DD',
     zippedArchive: true,
@@ -42,17 +42,18 @@ const transport: DailyRotateFile = new DailyRotateFile({
     maxFiles: '14d'
   });
 
-transport.on('rotate', function(oldFilename, newFilename) {
-      logger.debug(`rotate logger function firing oldFilename: ${oldFilename} newFilename:${newFilename}`)
+dailyFileTransport.on('rotate', function(oldFilename, newFilename) {
+      loggerLib.debug(`rotate logger function firing oldFilename: ${oldFilename} newFilename:${newFilename}`)
     });
 
-const logger = winston.createLogger({
+const loggerLib = winston.createLogger({
   level: level(),
   levels,
   format: format,
   transports: [
-    transport
+    dailyFileTransport,
+    new winston.transports.Console({ format: winston.format.simple() })
   ]
 });
 
-export default logger
+export default loggerLib
