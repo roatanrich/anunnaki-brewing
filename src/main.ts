@@ -5,6 +5,7 @@ import morganMiddleware from './config/morganConfig';
 import swaggerConfig from './config/swaggerConfig';
 import logger from './lib/loggerLib';
 import authRoutes from './routes/authenticationRoutes';
+import beerStyleRouter from './routes/beerStyleRoutes';
 import cryptoRoutes from './routes/cryptoRoutes';
 import fermentableRouter from './routes/fermentableRoutes';
 import hopRouter from './routes/hopRoutes';
@@ -21,6 +22,7 @@ app.use(pingRouter);
 app.use(authRoutes);
 app.use(cryptoRoutes);
 app.use(fermentableRouter);
+app.use(beerStyleRouter);
 
 swaggerConfig(app);
 
