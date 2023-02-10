@@ -6,6 +6,7 @@ import swaggerConfig from './config/swaggerConfig';
 import logger from './lib/loggerLib';
 import authRoutes from './routes/authenticationRoutes';
 import cryptoRoutes from './routes/cryptoRoutes';
+import fermentableRouter from './routes/fermentableRoutes';
 import hopRouter from './routes/hopRoutes';
 import pingRouter from './routes/pingRoutes';
 
@@ -19,6 +20,7 @@ app.use(hopRouter);
 app.use(pingRouter);
 app.use(authRoutes);
 app.use(cryptoRoutes);
+app.use(fermentableRouter);
 
 swaggerConfig(app);
 

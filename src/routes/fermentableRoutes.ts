@@ -1,16 +1,16 @@
 import express from 'express';
-import hops from '../../data/sample/hops';
+import fermentables from '../../data/sample/fermentables';
 
 const router = express.Router();
 
 /**
  * @openapi
- * /api/hops/:
+ * /api/fermentables/:
  *   get:
  *     tags:
- *     - Hops
- *     summary: Get a list of all the hops
- *     description: It will show all hops added to system
+ *     - Fermentables
+ *     summary: Get a list of all the fermentables
+ *     description: It will show all fermentables added to system
  *     produces:
  *     - application/json
  *     responses:
@@ -19,21 +19,21 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/api/hops', (_, res) => {
-  res.json(hops);
+router.get('/api/fermentables', (_, res) => {
+  res.json(fermentables);
 });
 
 /**
  * @openapi
- * '/api/hops/{name}':
+ * '/api/fermentables/{name}':
  *  get:
  *     tags:
- *     - Hops
- *     summary: Get a single hop by name
+ *     - Fermentables
+ *     summary: Get a single fermentable by name
  *     parameters:
  *      - name: name
  *        in: path
- *        description: The name of the hop
+ *        description: The name of the fermentable
  *        required: true
  *     responses:
  *       200:
@@ -45,8 +45,8 @@ router.get('/api/hops', (_, res) => {
  *       404:
  *         description: Not found
  */
-router.get('/api/hops/:name', (req, res) => {
-  const result = hops.filter((x) => x.name == req.params.name);
+router.get('/api/fermentables/:name', (req, res) => {
+  const result = fermentables.filter((x) => x.name == req.params.name);
   res.json(result);
 });
 
