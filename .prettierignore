@@ -1,3 +1,10 @@
-node_modules/*
-data/*
-logs/*
+/node_modules/
+/build/
+/dist/
+/docs/
+/coverage/
+/logs/
+/package/
+
+yarn.lock
+package-lock.json
