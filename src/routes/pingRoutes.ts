@@ -1,7 +1,7 @@
-import express from 'express'
-import logger from '../lib/loggerLib'
+import express from 'express';
+import logger from '../lib/loggerLib';
 
-const router = express.Router()
+const router = express.Router();
 
 /**
  * @openapi
@@ -18,10 +18,10 @@ const router = express.Router()
  *       500:
  *         description: Internal Server Error
  */
-router.get("/ping", (_, res) => {
-  logger.debug("Ping API was executed");
+router.get('/ping', (_, res) => {
+  logger.debug('Ping API was executed');
 
-  res.send("Ping Successful");
+  res.send('Ping Successful');
 });
 
-export default router
+export default router;

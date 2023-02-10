@@ -1,4 +1,3 @@
-/.vscode/*
 /node_modules/
 /build/
 /lib/
@@ -9,7 +8,6 @@
 
 .DS_Store
 coverage
-*.log
 
 yarn.lock
 package-lock.json
