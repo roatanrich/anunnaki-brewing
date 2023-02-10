@@ -8,9 +8,18 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
-  extends: ['prettier/@typescript-eslint', 'plugin:prettier/recommended'],
   rules: {
-    '@typescript-eslint/interface-name-prefix': ['always'],
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'interface',
+        format: ['PascalCase'],
+        custom: {
+          regex: '^I[A-Z]',
+          match: true,
+        },
+      },
+    ],
     'no-underscore-dangle': 'error',
   },
 };
