@@ -1,12 +1,12 @@
 import express from 'express';
-import fermentables from '../../data/sample/fermentables';
+import fermentableData from '../../data/sample/fermentableData';
 import log from '../lib/loggerLib';
 
 const router = express.Router();
 
 /**
  * @openapi
- * /api/fermentables/:
+ * /v1/api/fermentables/:
  *   get:
  *     tags:
  *     - Fermentables
@@ -20,14 +20,14 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/api/fermentables', (req, res) => {
+router.get('/v1/api/fermentables', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  res.json(fermentables);
+  res.json(fermentableData);
 });
 
 /**
  * @openapi
- * '/api/fermentables/{name}':
+ * /v1/api/fermentables/{name}:
  *  get:
  *     tags:
  *     - Fermentables
@@ -47,9 +47,9 @@ router.get('/api/fermentables', (req, res) => {
  *       404:
  *         description: Not found
  */
-router.get('/api/fermentables/:name', (req, res) => {
+router.get('/v1/api/fermentables/:name', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  const result = fermentables.filter((x) => x.name == req.params.name);
+  const result = fermentableData.filter((x) => x.name == req.params.name);
   res.json(result);
 });
 

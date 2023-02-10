@@ -7,7 +7,7 @@ const router = express.Router();
 
 /**
  * @openapi
- * /crypto/:
+ * /v1/api/crypto/:
  *   get:
  *     tags:
  *     - Crypto
@@ -20,7 +20,7 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/crypto', (req, res) => {
+router.get('/v1/api/crypto', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
 
   // file deepcode ignore MissingArgument: <please specify a reason of ignoring this>

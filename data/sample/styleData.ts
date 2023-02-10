@@ -1,4 +1,4 @@
-const beerStyles = [
+const styleData = [
   {
     id: 1,
     parent_style_id: '',
@@ -4469,4 +4469,4 @@ const beerStyles = [
   },
 ];
 
-export default beerStyles;
+export default styleData;

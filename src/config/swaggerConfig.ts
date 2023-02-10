@@ -1,47 +1,68 @@
-import { RequestHandler } from 'express'
-import { ParamsDictionary } from 'express-serve-static-core'
-import { ParsedQs } from 'qs'
-import swaggerJsdoc from 'swagger-jsdoc'
-import swaggerUi from 'swagger-ui-express'
-import { version } from '../../package.json'
+import { RequestHandler } from 'express';
+import { ParamsDictionary } from 'express-serve-static-core';
+import { ParsedQs } from 'qs';
+import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import { version } from '../../package.json';
 
 const url = 'http://localhost:3000';
 
 const options: swaggerJsdoc.Options = {
   definition: {
-      openapi: "3.0.0",
-      servers: [{ url }],
-      basePath: '/api/',
-  info: {
+    openapi: '3.0.0',
+    servers: [{ url }],
+    basePath: '/api/',
+    info: {
       title: 'API Server for Anunnaki Brewing',
       version: `${version}`,
       contact: {
         email: 'roatanrich@gmail.com',
-        name: 'Rich Henry'
+        name: 'Rich Henry',
       },
-  },
-  components: {
-      securitySchemas: {
-        bearerAuth: {
-          type: "http",
-          scheme: "bearer",
-          bearerFormat: "JWT",
+    },
+    components: {
+      securitySchemes: {
+        BasicAuth: {
+          type: 'http',
+          scheme: 'basic',
+        },
+        BearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          in: 'header',
+          bearerFormat: 'JWT',
+        },
+        ApiKeyAuth: {
+          type: 'apiKey',
+          in: 'header',
+          name: 'X-API-Key',
         },
       },
-  },
-  security: [
-      {
-        bearerAuth: [],
-      },
-    ],
+    },
   },
   apis: ['./src/routes/*.ts'],
 };
 
+const specs = swaggerJsdoc(options);
 
-
-const specs = swaggerJsdoc(options)
-
-export default function (app: { use: (arg0: string, arg1: RequestHandler<ParamsDictionary, unknown, unknown, ParsedQs, Record<string, unknown>>[], arg2: RequestHandler<ParamsDictionary, unknown, unknown, ParsedQs, Record<string, unknown>>) => void }) {
-    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
+export default function (app: {
+  use: (
+    arg0: string,
+    arg1: RequestHandler<
+      ParamsDictionary,
+      unknown,
+      unknown,
+      ParsedQs,
+      Record<string, unknown>
+    >[],
+    arg2: RequestHandler<
+      ParamsDictionary,
+      unknown,
+      unknown,
+      ParsedQs,
+      Record<string, unknown>
+    >,
+  ) => void;
+}) {
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 }

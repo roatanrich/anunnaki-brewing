@@ -1,4 +1,4 @@
-const hops = [
+const hopData = [
   {
     "name": "Admiral",
     "use": "bittering",
@@ -3088,4 +3088,4 @@ const hops = [
   }
 ]
 
-export default hops
+export default hopData

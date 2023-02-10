@@ -5,7 +5,7 @@ const router = express.Router();
 
 /**
  * @openapi
- * /login/:
+ * /v1/api/login/:
  *   post:
  *     tags:
  *     - Login
@@ -18,7 +18,7 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.post('/login', (req, res) => {
+router.post('/v1/api/login', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
 
   res.send('Login Successful');

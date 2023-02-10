@@ -1,12 +1,12 @@
 import express from 'express';
-import hops from '../../data/sample/hops';
+import hopData from '../../data/sample/hopData';
 import log from '../lib/loggerLib';
 
 const router = express.Router();
 
 /**
  * @openapi
- * /api/hops/:
+ * /v1/api/hops/:
  *   get:
  *     tags:
  *     - Hops
@@ -20,14 +20,14 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/api/hops', (req, res) => {
+router.get('/v1/api/hops', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  res.json(hops);
+  res.json(hopData);
 });
 
 /**
  * @openapi
- * '/api/hops/{name}':
+ * /v1/api/hops/{name}:
  *  get:
  *     tags:
  *     - Hops
@@ -47,9 +47,9 @@ router.get('/api/hops', (req, res) => {
  *       404:
  *         description: Not found
  */
-router.get('/api/hops/:name', (req, res) => {
+router.get('/v1/api/hops/:name', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  const result = hops.filter((x) => x.name == req.params.name);
+  const result = hopData.filter((x) => x.name == req.params.name);
   res.json(result);
 });
 

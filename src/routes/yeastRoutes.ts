@@ -1,12 +1,12 @@
 import express from 'express';
-import yeasts from '../../data/sample/yeasts';
+import yeastData from '../../data/sample/yeastData';
 import log from '../lib/loggerLib';
 
 const router = express.Router();
 
 /**
  * @openapi
- * /api/yeasts/:
+ * /v1/api/yeasts/:
  *   get:
  *     tags:
  *     - Yeasts
@@ -20,14 +20,14 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/api/yeasts', (req, res) => {
+router.get('/v1/api/yeasts', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  res.json(yeasts);
+  res.json(yeastData);
 });
 
 /**
  * @openapi
- * '/api/yeasts/{name}':
+ * /v1/api/yeasts/{name}:
  *  get:
  *     tags:
  *     - Yeasts
@@ -47,9 +47,9 @@ router.get('/api/yeasts', (req, res) => {
  *       404:
  *         description: Not found
  */
-router.get('/api/yeasts/:name', (req, res) => {
+router.get('/v1/api/yeasts/:name', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  const result = yeasts.filter((x) => x.name == req.params.name);
+  const result = yeastData.filter((x) => x.name == req.params.name);
   res.json(result);
 });
 

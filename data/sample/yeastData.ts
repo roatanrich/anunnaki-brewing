@@ -1,4 +1,4 @@
-const yeasts = [
+const yeastData = [
   {
     name: 'Fermoale',
     alt_names: '',
@@ -13396,4 +13396,4 @@ const yeasts = [
   },
 ];
 
-export default yeasts;
+export default yeastData;

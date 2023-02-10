@@ -1,4 +1,4 @@
-const beerCategories = [
+const categoryData = [
   {
     name: 'Altbier',
     id: 1,
@@ -705,4 +705,4 @@ const beerCategories = [
   },
 ];
 
-export default beerCategories;
+export default categoryData;

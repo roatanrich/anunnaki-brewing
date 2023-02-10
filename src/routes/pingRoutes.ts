@@ -5,11 +5,13 @@ const router = express.Router();
 
 /**
  * @openapi
- * /ping/:
+ * /v1/api/ping/:
  *   get:
  *     tags:
  *     - Ping
  *     summary: Pings the API server
+ *     security:
+ *     - BearerAuth: []
  *     produces:
  *     - application/json
  *     responses:
@@ -18,7 +20,7 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/ping', (req, res) => {
+router.get('/v1/api/ping', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
 
   res.send('Ping Successful');

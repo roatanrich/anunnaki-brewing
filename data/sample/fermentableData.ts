@@ -1,4 +1,4 @@
-const fermentables = [
+const fermentableData = [
   {
     name: 'Basic Barley Malt',
     category: 'grain',
@@ -1768,4 +1768,4 @@ const fermentables = [
   },
 ];
 
-export default fermentables;
+export default fermentableData;

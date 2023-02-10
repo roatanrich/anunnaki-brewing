@@ -5,12 +5,12 @@ import morganMiddleware from './config/morganConfig';
 import swaggerConfig from './config/swaggerConfig';
 import logger from './lib/loggerLib';
 import authRoutes from './routes/authenticationRoutes';
-import beerCategoriesRouter from './routes/beerCategoriesRoutes';
-import beerStylesRouter from './routes/beerStylesRoutes';
+import categoryRouter from './routes/categoryRoutes';
 import cryptoRoutes from './routes/cryptoRoutes';
 import fermentableRouter from './routes/fermentableRoutes';
 import hopRouter from './routes/hopRoutes';
 import pingRouter from './routes/pingRoutes';
+import styleRouter from './routes/styleRoutes';
 import yeastRouter from './routes/yeastRoutes';
 
 const app = express();
@@ -24,14 +24,14 @@ app.use(pingRouter);
 app.use(authRoutes);
 app.use(cryptoRoutes);
 app.use(fermentableRouter);
-app.use(beerCategoriesRouter);
-app.use(beerStylesRouter);
+app.use(categoryRouter);
+app.use(styleRouter);
 app.use(yeastRouter);
 
 swaggerConfig(app);
 
 app.get('/', (_, res) => {
-  res.redirect(`http://localhost:${process.env.PORT}/ping`);
+  res.redirect(`http://localhost:${process.env.PORT}/api-docs`);
 });
 
 app.listen(process.env.PORT, () => {
