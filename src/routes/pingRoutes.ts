@@ -1,5 +1,5 @@
 import express from 'express';
-import logger from '../lib/loggerLib';
+import log from '../lib/loggerLib';
 
 const router = express.Router();
 
@@ -18,8 +18,8 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/ping', (_, res) => {
-  logger.debug('Ping API was executed');
+router.get('/ping', (req, res) => {
+  log.debug(`Executing route: ${req.route.path}`);
 
   res.send('Ping Successful');
 });

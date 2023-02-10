@@ -1,17 +1,17 @@
 import express from 'express';
-import hops from '../../data/sample/hops';
+import beerCategories from '../../data/sample/beerCategories';
 import log from '../lib/loggerLib';
 
 const router = express.Router();
 
 /**
  * @openapi
- * /api/hops/:
+ * /api/beer-categories/:
  *   get:
  *     tags:
- *     - Hops
- *     summary: Get a list of all the hops
- *     description: It will show all hops added to system
+ *     - Beer Categories
+ *     summary: Get a list of all the beer categories
+ *     description: It will show all beer categories added to system
  *     produces:
  *     - application/json
  *     responses:
@@ -20,22 +20,22 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/api/hops', (req, res) => {
+router.get('/api/beer-categories', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  res.json(hops);
+  res.json(beerCategories);
 });
 
 /**
  * @openapi
- * '/api/hops/{name}':
+ * '/api/beer-categories/{name}':
  *  get:
  *     tags:
- *     - Hops
- *     summary: Get a single hop by name
+ *     - Beer Categories
+ *     summary: Get a single beer category by name
  *     parameters:
  *      - name: name
  *        in: path
- *        description: The name of the hop
+ *        description: The name of the beer category
  *        required: true
  *     responses:
  *       200:
@@ -47,9 +47,9 @@ router.get('/api/hops', (req, res) => {
  *       404:
  *         description: Not found
  */
-router.get('/api/hops/:name', (req, res) => {
+router.get('/api/beer-categories/:name', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  const result = hops.filter((x) => x.name == req.params.name);
+  const result = beerCategories.filter((x) => x.name == req.params.name);
   res.json(result);
 });
 

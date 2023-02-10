@@ -1,5 +1,5 @@
 import express from 'express';
-import logger from '../lib/loggerLib';
+import log from '../lib/loggerLib';
 
 const router = express.Router();
 
@@ -18,8 +18,8 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.post('/login', (_, res) => {
-  logger.debug('Login API was executed');
+router.post('/login', (req, res) => {
+  log.debug(`Executing route: ${req.route.path}`);
 
   res.send('Login Successful');
 });

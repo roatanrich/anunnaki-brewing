@@ -1,5 +1,6 @@
 import express from 'express';
 import beerStyles from '../../data/sample/beerStyles';
+import log from '../lib/loggerLib';
 
 const router = express.Router();
 
@@ -19,7 +20,8 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/api/beer-styles', (_, res) => {
+router.get('/api/beer-styles', (req, res) => {
+  log.debug(`Executing route: ${req.route.path}`);
   res.json(beerStyles);
 });
 
@@ -46,6 +48,7 @@ router.get('/api/beer-styles', (_, res) => {
  *         description: Not found
  */
 router.get('/api/beer-styles/:name', (req, res) => {
+  log.debug(`Executing route: ${req.route.path}`);
   const result = beerStyles.filter((x) => x.name == req.params.name);
   res.json(result);
 });

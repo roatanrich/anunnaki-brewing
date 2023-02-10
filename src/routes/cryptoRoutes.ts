@@ -1,7 +1,7 @@
 import express from 'express';
 import { CircuitBreaker } from '../lib/circuitBreakerLib';
 import cryptoPriceLib from '../lib/cryptoPriceLib';
-import logger from '../lib/loggerLib';
+import log from '../lib/loggerLib';
 
 const router = express.Router();
 
@@ -20,8 +20,8 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/crypto', (_, res) => {
-  logger.debug('Crypto API was executed');
+router.get('/crypto', (req, res) => {
+  log.debug(`Executing route: ${req.route.path}`);
 
   // file deepcode ignore MissingArgument: <please specify a reason of ignoring this>
   const circuitBreaker = new CircuitBreaker('http://localhost:8080');
@@ -31,7 +31,7 @@ router.get('/crypto', (_, res) => {
   }, 1000);
 
   const list = cryptoPriceLib();
-  logger.info(list);
+  log.info(list);
 
   res.send(list);
 });

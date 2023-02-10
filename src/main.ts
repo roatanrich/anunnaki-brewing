@@ -5,11 +5,13 @@ import morganMiddleware from './config/morganConfig';
 import swaggerConfig from './config/swaggerConfig';
 import logger from './lib/loggerLib';
 import authRoutes from './routes/authenticationRoutes';
-import beerStyleRouter from './routes/beerStyleRoutes';
+import beerCategoriesRouter from './routes/beerCategoriesRoutes';
+import beerStylesRouter from './routes/beerStylesRoutes';
 import cryptoRoutes from './routes/cryptoRoutes';
 import fermentableRouter from './routes/fermentableRoutes';
 import hopRouter from './routes/hopRoutes';
 import pingRouter from './routes/pingRoutes';
+import yeastRouter from './routes/yeastRoutes';
 
 const app = express();
 
@@ -22,7 +24,9 @@ app.use(pingRouter);
 app.use(authRoutes);
 app.use(cryptoRoutes);
 app.use(fermentableRouter);
-app.use(beerStyleRouter);
+app.use(beerCategoriesRouter);
+app.use(beerStylesRouter);
+app.use(yeastRouter);
 
 swaggerConfig(app);
 

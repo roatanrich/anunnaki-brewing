@@ -1,5 +1,6 @@
 import express from 'express';
 import fermentables from '../../data/sample/fermentables';
+import log from '../lib/loggerLib';
 
 const router = express.Router();
 
@@ -19,7 +20,8 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/api/fermentables', (_, res) => {
+router.get('/api/fermentables', (req, res) => {
+  log.debug(`Executing route: ${req.route.path}`);
   res.json(fermentables);
 });
 
@@ -46,6 +48,7 @@ router.get('/api/fermentables', (_, res) => {
  *         description: Not found
  */
 router.get('/api/fermentables/:name', (req, res) => {
+  log.debug(`Executing route: ${req.route.path}`);
   const result = fermentables.filter((x) => x.name == req.params.name);
   res.json(result);
 });
