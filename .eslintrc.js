@@ -10,7 +10,7 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   extends: ['prettier/@typescript-eslint', 'plugin:prettier/recommended'],
   rules: {
-    '@typescipt-eslint/interface-name-prefix': ['always'],
+    '@typescript-eslint/interface-name-prefix': ['always'],
     'no-underscore-dangle': 'error',
   },
 };
