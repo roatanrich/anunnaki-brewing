@@ -23,6 +23,6 @@
     "types": ["node", "jest"],
     "lib": ["ES6", "DOM"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/lib/cryptoPriceLib.js"],
   "exclude": ["node_modules", "**/*.test.ts"]
 }
