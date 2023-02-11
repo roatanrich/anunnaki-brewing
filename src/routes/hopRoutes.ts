@@ -22,7 +22,8 @@ const router = express.Router();
  */
 router.get('/v1/api/hops', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  res.json(hopData);
+  const maxResult: number = Number(process.env.MAX_RESULT);
+  res.json(hopData.slice(0, maxResult));
 });
 
 /**

@@ -25,17 +25,23 @@ const options: swaggerJsdoc.Options = {
         BasicAuth: {
           type: 'http',
           scheme: 'basic',
+          description:
+            'After logging to this site, you will be authenticated for api calls during a session',
         },
         BearerAuth: {
           type: 'http',
           scheme: 'bearer',
           in: 'header',
           bearerFormat: 'JWT',
+          description:
+            'After logging in to this site, you will be given a token which is then included in all api calls during a session',
         },
         ApiKeyAuth: {
           type: 'apiKey',
           in: 'header',
           name: 'X-API-Key',
+          description:
+            'After registering on this site, you will be assigned an api_key',
         },
       },
     },

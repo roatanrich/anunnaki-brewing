@@ -22,7 +22,8 @@ const router = express.Router();
  */
 router.get('/v1/api/fermentables', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  res.json(fermentableData);
+  const maxResult: number = Number(process.env.MAX_RESULT);
+  res.json(fermentableData.slice(0, maxResult));
 });
 
 /**

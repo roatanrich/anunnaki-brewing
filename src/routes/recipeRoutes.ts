@@ -1,17 +1,18 @@
+import 'dotenv/config';
 import express from 'express';
-import styleData from '../../data/sample/styleData';
+import recipeData from '../../data/sample/recipeData';
 import log from '../lib/loggerLib';
 
 const router = express.Router();
 
 /**
  * @openapi
- * /v1/api/beer-styles/:
+ * /v1/api/recipes/:
  *   get:
  *     tags:
- *     - Beer Styles
- *     summary: Get a list of all the beer styles
- *     description: It will show all beer styles added to system
+ *     - Recipes
+ *     summary: Get a list of all the recipes
+ *     description: It will show all recipes added to system
  *     produces:
  *     - application/json
  *     responses:
@@ -20,23 +21,23 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/v1/api/beer-styles', (req, res) => {
+router.get('/v1/api/recipes', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
   const maxResult: number = Number(process.env.MAX_RESULT);
-  res.json(styleData.slice(0, maxResult));
+  res.json(recipeData.slice(0, maxResult));
 });
 
 /**
  * @openapi
- * /v1/api/beer-styles/{name}:
+ * /v1/api/recipes/{name}:
  *  get:
  *     tags:
- *     - Beer Styles
- *     summary: Get a single beer style by name
+ *     - Recipes
+ *     summary: Get a single recipe by name
  *     parameters:
  *      - name: name
  *        in: path
- *        description: The name of the beer style
+ *        description: The name of the recipe
  *        required: true
  *     responses:
  *       200:
@@ -48,9 +49,9 @@ router.get('/v1/api/beer-styles', (req, res) => {
  *       404:
  *         description: Not found
  */
-router.get('/v1/api/beer-styles/:name', (req, res) => {
+router.get('/v1/api/recipes/:name', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  const result = styleData.filter((x: any) => x.name == req.params.name);
+  const result = recipeData.filter((x) => x.name == req.params.name);
   res.json(result);
 });
 

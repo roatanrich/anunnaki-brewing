@@ -10,8 +10,6 @@ const router = express.Router();
  *     tags:
  *     - Ping
  *     summary: Pings the API server
- *     security:
- *     - BearerAuth: []
  *     produces:
  *     - application/json
  *     responses:

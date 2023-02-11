@@ -22,7 +22,8 @@ const router = express.Router();
  */
 router.get('/v1/api/beer-categories', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  res.json(categoryData);
+  const maxResult: number = Number(process.env.MAX_RESULT);
+  res.json(categoryData.slice(0, maxResult));
 });
 
 /**

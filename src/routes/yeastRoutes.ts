@@ -22,7 +22,8 @@ const router = express.Router();
  */
 router.get('/v1/api/yeasts', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  res.json(yeastData);
+  const maxResult: number = Number(process.env.MAX_RESULT);
+  res.json(yeastData.slice(0, maxResult));
 });
 
 /**
