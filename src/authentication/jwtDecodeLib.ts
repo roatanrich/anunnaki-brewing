@@ -1,5 +1,5 @@
 import { decode, TAlgorithm } from 'jwt-simple';
-import { DecodeResultType, IJwtSession } from './jwtInterfaces';
+import { DecodeResultType } from './jwtInterfaces';
 
 export function decodeSession(
   secretKey: string,
@@ -8,7 +8,7 @@ export function decodeSession(
   // Always use HS512 to decode the token
   const algorithm: TAlgorithm = 'HS512';
 
-  let result: IJwtSession;
+  let result: any;
 
   try {
     result = decode(tokenString, secretKey, false, algorithm);
@@ -23,6 +23,7 @@ export function decodeSession(
     ) {
       return {
         type: 'invalid-token',
+        session: result,
       };
     }
 
@@ -32,6 +33,7 @@ export function decodeSession(
     ) {
       return {
         type: 'integrity-error',
+        session: result,
       };
     }
 
@@ -39,6 +41,7 @@ export function decodeSession(
     if (e.message.indexOf('Unexpected token') === 0) {
       return {
         type: 'invalid-token',
+        session: result,
       };
     }
 

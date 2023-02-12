@@ -37,9 +37,11 @@ export type DecodeResultType =
     }
   | {
       type: 'integrity-error';
+      session: IJwtSession;
     }
   | {
       type: 'invalid-token';
+      session: IJwtSession;
     };
 
 export type ExpirationStatusType = 'expired' | 'active' | 'grace';

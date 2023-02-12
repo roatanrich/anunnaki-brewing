@@ -5,7 +5,7 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { version } from '../../package.json';
 
-const url = 'http://localhost:3000';
+const url = `http://localhost:${process.env.PORT}`;
 
 const options: swaggerJsdoc.Options = {
   definition: {
@@ -22,27 +22,27 @@ const options: swaggerJsdoc.Options = {
     },
     components: {
       securitySchemes: {
-        BasicAuth: {
-          type: 'http',
-          scheme: 'basic',
-          description:
-            'After logging to this site, you will be authenticated for api calls during a session',
-        },
+        // BasicAuth: {
+        //   type: 'http',
+        //   scheme: 'basic',
+        //   description:
+        //     'After logging to this site, you will be authenticated for api calls during a session',
+        // },
         BearerAuth: {
           type: 'http',
           scheme: 'bearer',
-          in: 'header',
+          //in: 'header',
           bearerFormat: 'JWT',
           description:
             'After logging in to this site, you will be given a token which is then included in all api calls during a session',
         },
-        ApiKeyAuth: {
-          type: 'apiKey',
-          in: 'header',
-          name: 'X-API-Key',
-          description:
-            'After registering on this site, you will be assigned an api_key',
-        },
+        // ApiKeyAuth: {
+        //   type: 'apiKey',
+        //   in: 'header',
+        //   name: 'X-API-Key',
+        //   description:
+        //     'After registering on this site, you will be assigned an api_key',
+        // },
       },
     },
   },
