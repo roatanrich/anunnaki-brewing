@@ -5,7 +5,7 @@ export default class UserModel {
   last_name: string = '';
   password: string = '';
   api_key: string = '';
-  roles: string[];
+  roles: string[] = [];
 
   constructor() {}
 
