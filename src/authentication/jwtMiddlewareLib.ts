@@ -9,7 +9,10 @@ import {
 import { checkExpirationStatus } from './jwtVerifyLib';
 
 /**
+ *
  * Express middleware, checks for a valid JSON Web Token and returns 401 Unauthorized if one isn't found.
+ * https://nozzlegear.com/blog/implementing-a-jwt-auth-system-with-typescript-and-node
+ *
  */
 export function requireJwtMiddleware(
   request: Request,

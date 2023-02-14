@@ -7,10 +7,14 @@ export function encodeSession(
 ): IEncodeResult {
   // Always use HS512 to sign the token
   const algorithm: TAlgorithm = 'HS512';
+
   // Determine when the token should expire
   const issued = Date.now();
-  const fifteenMinutesInMs = 15 * 60 * 1000;
-  const expires = issued + fifteenMinutesInMs;
+  const expireInMinutes: number = Number(
+    process.env.JWT_SECRET_KEY_EXPIRE_MINUTES_COUNT,
+  );
+  const minutesInMs = expireInMinutes * 60 * 1000;
+  const expires = issued + minutesInMs;
   const session: IJwtSession = {
     ...partialSession,
     issued: issued,

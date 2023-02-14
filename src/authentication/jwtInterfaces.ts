@@ -9,13 +9,13 @@ export interface IJwtSession {
   id: number;
   dateCreated: number;
   username: string;
-  /**
-   * Timestamp indicating when the session was created, in Unix milliseconds.
-   */
+  apiKey: string;
+  roles: String[];
+
+  // Timestamp indicating when the session was created, in Unix milliseconds.
   issued: number;
-  /**
-   * Timestamp indicating when the session should expire, in Unix milliseconds.
-   */
+
+  // Timestamp indicating when the session should expire, in Unix milliseconds.
   expires: number;
 }
 

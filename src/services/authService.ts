@@ -1,4 +1,5 @@
 import userData from '../../data/sample/userData';
+import UserModel from '../../src/models/UserModel';
 import { decodeSession } from '../authentication/jwtDecodeLib';
 import { encodeSession } from '../authentication/jwtEncodeLib';
 import {
@@ -12,27 +13,24 @@ const authService = {
     const username = req.body.username;
     const password = req.body.password;
 
-    if (username == undefined || password == undefined) {
-      log.error('Invalid request');
-      throw new Error('Invalid request');
+    log.debug(`List of Users ${userData}`);
+
+    let user: UserModel = userData.filter(
+      (x) => x.username === username && x.password === password,
+    )[0];
+
+    if (user.id === undefined) {
+      log.error(`Unknown User ${username}`);
+      throw new Error(`Unknown User ${username}`);
     }
-
-    const user: any = userData.filter((x) => {
-      x.username == username && x.password == password;
-    });
-
-    if (user == undefined) {
-      log.error('User not found');
-      throw new Error('User not found');
-    }
-
-    log.debug(`Found user ${user.first_name} ${user.last_name}`);
 
     const secret = String(process.env.JWT_SECRET_KEY);
     const session: IEncodeResult = encodeSession(secret, {
       id: user.id,
       username: user.username,
       dateCreated: Date.now(),
+      apiKey: user.api_key,
+      roles: user.roles,
     });
 
     log.debug(`Session Token: ${session.token}`);

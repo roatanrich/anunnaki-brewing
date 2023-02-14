@@ -22,7 +22,7 @@ const router = express.Router();
  *              password:
  *                type: string
  *            example:
- *              username: "user@user.com"
+ *              username: "roatanrich@gmail.com"
  *              password: "Passw0rd"
  *    produces:
  *      - application/json

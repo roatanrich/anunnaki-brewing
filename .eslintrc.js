@@ -22,7 +22,7 @@ module.exports = {
       },
       {
         selector: ['variable', 'function', 'parameter'],
-        format: ['camelCase'],
+        format: ['camelCase', 'snake_case'],
         leadingUnderscore: 'forbid',
       },
       {
