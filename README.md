@@ -6,6 +6,8 @@
 [![Issues](https://img.shields.io/github/issues/roatanrich/annunaki-brewing)](https://github.com/roatanrich/annunaki-brewing/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/roatanrich/annunaki-brewing)](https://github.com/roatanrich/annunaki-brewing/stargazers)
 
+Click [here](https://anunnaki-brewing.herokuapp.com/) to view the latest version
+
 This project was cloned from here: **[Starting a TypeScript Project in 2021](https://www.metachris.com/2021/04/starting-a-typescript-project-in-2021/)**.
 
 The name was inspired after reading [Zecharia Sitchen's](https://en.wikipedia.org/wiki/Zecharia_Sitchin) many books on the subject of the [Anunnaki](https://en.wikipedia.org/wiki/Anunnaki)
