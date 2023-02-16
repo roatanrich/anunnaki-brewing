@@ -1,4 +1,4 @@
-import { IEncodeResult, IJwtSession } from '../authentication/jwtInterfaces';
+import { IEncodeResult } from '../authentication/jwtInterfaces';
 import log from '../lib/loggerLib';
 import authService from '../services/authService';
 
@@ -20,9 +20,7 @@ const authController = {
     log.debug(`Executing route: ${req.route.path}`);
 
     try {
-      let session: IJwtSession = await authService.inspectToken(
-        req.params.token,
-      );
+      let session = await authService.inspectToken(req.params.token);
 
       return res.status(200).json({ data: session });
     } catch (error) {

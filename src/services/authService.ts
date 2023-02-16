@@ -5,7 +5,9 @@ import { encodeSession } from '../authentication/jwtEncodeLib';
 import {
   DecodeResultType,
   IEncodeResult,
+  IJwtSession,
 } from '../authentication/jwtInterfaces';
+import dateDiff from '../lib/datetimeLib';
 import log from '../lib/loggerLib';
 
 const authService = {
@@ -42,7 +44,25 @@ const authService = {
 
     const secret: string = String(process.env.JWT_SECRET_KEY);
     const resultType: DecodeResultType = decodeSession(secret, token);
-    const result = resultType.session;
+
+    let result: any;
+    if (resultType.type !== 'valid') {
+      result = `Invalid Token - ${resultType.type}`;
+    } else {
+      let session: IJwtSession = resultType.session;
+
+      result = {
+        id: session.id,
+        dateCreated: 0,
+        username: session.username,
+        apiKey: session.apiKey,
+        createdDate: new Date(session.dateCreated),
+        expires: new Date(session.expires),
+        remainingTime: dateDiff(new Date(session.dateCreated)),
+        message: `Token good for ${process.env.JWT_EXPIRE_MINUTES} minutes`,
+        roles: session.roles,
+      };
+    }
 
     return result;
   },

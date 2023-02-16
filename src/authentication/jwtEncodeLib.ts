@@ -10,9 +10,7 @@ export function encodeSession(
 
   // Determine when the token should expire
   const issued = Date.now();
-  const expireInMinutes: number = Number(
-    process.env.JWT_SECRET_KEY_EXPIRE_MINUTES_COUNT,
-  );
+  const expireInMinutes: number = Number(process.env.JWT_EXPIRE_MINUTES);
   const minutesInMs = expireInMinutes * 60 * 1000;
   const expires = issued + minutesInMs;
   const session: IJwtSession = {

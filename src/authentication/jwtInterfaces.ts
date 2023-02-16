@@ -19,10 +19,17 @@ export interface IJwtSession {
   expires: number;
 }
 
-/**
- * Identical to the Session type, but without the `issued` and `expires` properties.
- */
+export interface IDisplayDate {
+  createdDate: Date;
+  remainingTime: Date;
+  message: string;
+}
+
+//Identical to the IJwtSession type, but without the `issued` and `expires` properties.
 export type PartialJwtSession = Omit<IJwtSession, 'issued' | 'expires'>;
+
+//Identical to the IJwtSession type, but without the `issued` and including IDisplayDate properties
+export type DisplayJwtSession = Omit<IJwtSession, 'issued'> & IDisplayDate;
 
 export interface IEncodeResult {
   token: string;
