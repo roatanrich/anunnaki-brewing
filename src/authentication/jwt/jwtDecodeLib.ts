@@ -1,7 +1,7 @@
 import { decode, TAlgorithm } from 'jwt-simple';
 import { DecodeResultType } from './jwtInterfaces';
 
-export function decodeSession(
+function decodeSession(
   secretKey: string,
   tokenString: string,
 ): DecodeResultType {
@@ -53,3 +53,5 @@ export function decodeSession(
     session: result,
   };
 }
+
+export default decodeSession;

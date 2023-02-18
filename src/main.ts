@@ -1,19 +1,12 @@
 import cors from 'cors';
 import 'dotenv/config';
 import express from 'express';
-//import { requireJwtMiddleware } from './authentication/jwtMiddlewareLib';
 import morganMiddleware from './config/morganConfig';
 import swaggerConfig from './config/swaggerConfig';
 import log from './lib/loggerLib';
-import authRoutes from './routes/authRoutes';
-import categoryRouter from './routes/categoryRoutes';
+import brewingRoutes from './routes/brewingRoutes';
 import cryptoRoutes from './routes/cryptoRoutes';
-import fermentableRouter from './routes/fermentableRoutes';
-import hopRouter from './routes/hopRoutes';
-import pingRouter from './routes/pingRoutes';
-import recipeRouter from './routes/recipeRoutes';
-import styleRouter from './routes/styleRoutes';
-import yeastRouter from './routes/yeastRoutes';
+import unsecuredRoutes from './routes/unsecuredRoutes';
 
 const app = express();
 
@@ -21,16 +14,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(morganMiddleware);
-//app.use(authRoutes, requireJwtMiddleware);
-app.use(authRoutes);
-app.use(hopRouter);
-app.use(pingRouter);
+app.use(unsecuredRoutes);
+app.use(brewingRoutes);
 app.use(cryptoRoutes);
-app.use(fermentableRouter);
-app.use(categoryRouter);
-app.use(styleRouter);
-app.use(yeastRouter);
-app.use(recipeRouter);
 
 swaggerConfig(app);
 

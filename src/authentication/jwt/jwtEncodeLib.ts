@@ -1,7 +1,7 @@
 import { encode, TAlgorithm } from 'jwt-simple';
 import { IEncodeResult, IJwtSession, PartialJwtSession } from './jwtInterfaces';
 
-export function encodeSession(
+function encodeSession(
   secretKey: string,
   partialSession: PartialJwtSession,
 ): IEncodeResult {
@@ -25,3 +25,5 @@ export function encodeSession(
     expires: expires,
   };
 }
+
+export default encodeSession;

@@ -1,4 +1,4 @@
-import { IEncodeResult } from '../authentication/jwtInterfaces';
+import { IEncodeResult } from '../authentication/jwt/jwtInterfaces';
 import log from '../lib/loggerLib';
 import authService from '../services/authService';
 

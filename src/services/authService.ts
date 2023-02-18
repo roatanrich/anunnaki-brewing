@@ -1,12 +1,12 @@
 import userData from '../../data/sample/userData';
 import UserModel from '../../src/models/UserModel';
-import { decodeSession } from '../authentication/jwtDecodeLib';
-import { encodeSession } from '../authentication/jwtEncodeLib';
+import decodeSession from '../authentication/jwt/jwtDecodeLib';
+import encodeSession from '../authentication/jwt/jwtEncodeLib';
 import {
   DecodeResultType,
   IEncodeResult,
   IJwtSession,
-} from '../authentication/jwtInterfaces';
+} from '../authentication/jwt/jwtInterfaces';
 import dateDiff from '../lib/datetimeLib';
 import log from '../lib/loggerLib';
 

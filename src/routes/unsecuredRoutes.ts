@@ -1,5 +1,6 @@
 import express from 'express';
 import authController from '../controllers/authController';
+import log from '../lib/loggerLib';
 
 const router = express.Router();
 
@@ -8,7 +9,7 @@ const router = express.Router();
  * /v1/api/login/:
  *  post:
  *    tags:
- *      - Authorization
+ *      - Unsecured
  *    summary: "Returns Authorization Token"
  *    description: "Authorizes default users with username and password set as root to use the endpoints"
  *    requestBody:
@@ -46,7 +47,7 @@ router.post('/v1/api/login', authController.loginUser);
  * /v1/api/verify/{token}:
  *  get:
  *     tags:
- *     - Authorization
+ *     - Unsecured
  *     summary: Get a single hop by name
  *     description: "Once a user has been authenticated, they can inspect the contents of the token using this API call. NOTE: For DEV and TEST environments only"
  *     parameters:
@@ -66,6 +67,27 @@ router.post('/v1/api/login', authController.loginUser);
  */
 router.get('/v1/api/verify/:token', (req, res) => {
   authController.inspectToken(req, res);
+});
+
+/**
+ * @openapi
+ * /v1/api/ping/:
+ *   get:
+ *     tags:
+ *     - Unsecured
+ *     summary: Pings the API server
+ *     produces:
+ *     - application/json
+ *     responses:
+ *       200:
+ *         description: Ok
+ *       500:
+ *         description: Internal Server Error
+ */
+router.get('/v1/api/ping', (req, res) => {
+  log.debug(`Executing route: ${req.route.path}`);
+
+  res.send('Ping Successful');
 });
 
 export default router;

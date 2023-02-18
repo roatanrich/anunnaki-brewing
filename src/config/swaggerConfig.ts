@@ -31,10 +31,10 @@ const options: swaggerJsdoc.Options = {
         BearerAuth: {
           type: 'http',
           scheme: 'bearer',
-          //in: 'header',
+          in: 'header',
           bearerFormat: 'JWT',
           description:
-            'After logging in to this site, you will be given a token which is then included in all api calls during a session',
+            'After logging in to this site, you will be given a token which is then included in all api calls during a session.',
         },
         // ApiKeyAuth: {
         //   type: 'apiKey',

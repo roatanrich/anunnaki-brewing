@@ -1,20 +1,21 @@
 import { NextFunction, Request, Response } from 'express';
-import { decodeSession } from './jwtDecodeLib';
-import { encodeSession } from './jwtEncodeLib';
+import decodeSession from './jwtDecodeLib';
+import encodeSession from './jwtEncodeLib';
 import {
   DecodeResultType,
   ExpirationStatusType,
   IJwtSession,
 } from './jwtInterfaces';
-import { checkExpirationStatus } from './jwtVerifyLib';
+import checkExpirationStatus from './jwtVerifyTokenLib';
 
 /**
  *
  * Express middleware, checks for a valid JSON Web Token and returns 401 Unauthorized if one isn't found.
  * https://nozzlegear.com/blog/implementing-a-jwt-auth-system-with-typescript-and-node
+ * https://www.npmjs.com/packages/jwt-simple
  *
  */
-export function requireJwtMiddleware(
+function jwtMiddleware(
   request: Request,
   response: Response,
   next: NextFunction,
@@ -87,3 +88,5 @@ export function requireJwtMiddleware(
   // Request has a valid or renewed session. Call next to continue to the authenticated route handler
   next();
 }
+
+export default jwtMiddleware;

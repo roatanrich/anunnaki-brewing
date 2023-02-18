@@ -1,9 +1,12 @@
 import express from 'express';
-import { CircuitBreaker } from '../lib/circuitBreakerLib';
-import cryptoPriceLib from '../lib/cryptoPriceLib';
+import fetch from 'node-fetch';
 import log from '../lib/loggerLib';
+import format from '../lib/stringFormatterLib';
 
 const router = express.Router();
+//router.use('/v1/api/crypto', jwtMiddleware);
+
+//secured routes
 
 /**
  * @openapi
@@ -20,20 +23,45 @@ const router = express.Router();
  *       500:
  *         description: Internal Server Error
  */
-router.get('/v1/api/crypto', (req, res) => {
+router.get('/v1/api/crypto', async (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
 
-  // file deepcode ignore MissingArgument: <please specify a reason of ignoring this>
-  const circuitBreaker = new CircuitBreaker('http://localhost:8080');
+  //const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest';
+  //const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=BTC,XRP,NEXO,NANO,DFI,ETH,SOL,DASH,AVAX,MATIC';
 
-  setInterval(() => {
-    circuitBreaker.exec().then(console.log).catch(console.error);
-  }, 1000);
+  const url =
+    'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?id=1,52,2694,1567,5804,1027,5426,131,5805,3890';
 
-  const list = cryptoPriceLib();
-  log.info(list);
+  // const circuitBreaker = new CircuitBreaker(url);
 
-  res.send(list);
+  // setInterval(() => {
+  //   circuitBreaker.exec().then(console.log).catch(console.error);
+  // }, 1000);
+
+  try {
+    const response: any = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'X-CMC_PRO_API_KEY': `${process.env.API_KEY_CMC}`,
+      },
+    });
+    const jsonData: any = await response.json();
+    let priceList: string[] = [];
+    priceList.push(format(jsonData, '1'));
+    priceList.push(format(jsonData, '52'));
+    priceList.push(format(jsonData, '2694'));
+    priceList.push(format(jsonData, '1567'));
+    priceList.push(format(jsonData, '5804'));
+    priceList.push(format(jsonData, '1027'));
+    priceList.push(format(jsonData, '5426'));
+    priceList.push(format(jsonData, '131'));
+    priceList.push(format(jsonData, '5805'));
+    priceList.push(format(jsonData, '3890'));
+
+    res.json(priceList);
+  } catch (error: any) {
+    res.status(500).send(error.message);
+  }
 });
 
 export default router;

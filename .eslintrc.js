@@ -13,18 +13,18 @@ module.exports = {
     '@typescript-eslint/naming-convention': [
       'error',
       {
-        selector: 'interface',
-        format: ['PascalCase'],
-        custom: {
-          regex: '^I[A-Z]',
-          match: true,
-        },
-      },
-      {
         selector: ['variable', 'function', 'parameter'],
         format: ['camelCase', 'snake_case'],
         leadingUnderscore: 'forbid',
       },
+      // {
+      //   selector: 'interface',
+      //   format: ['PascalCase'],
+      //   custom: {
+      //     regex: '^I[A-Z]',
+      //     match: true,
+      //   },
+      // },
       {
         selector: 'variable',
         types: ['boolean'],
