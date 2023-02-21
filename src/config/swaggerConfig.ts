@@ -5,7 +5,10 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { version } from '../../package.json';
 
-const url = `http://localhost:${process.env.PORT}`;
+let url = `http://localhost:${process.env.PORT}`;
+if (process.env.NODE_ENV === 'production') {
+  url = '/';
+}
 
 const options: swaggerJsdoc.Options = {
   definition: {

@@ -22,11 +22,16 @@ swaggerConfig(app);
 
 app.get('/', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-
-  res.redirect(`http://localhost:${process.env.PORT}/api-docs`);
+  if (process.env.NODE_ENV === 'development') {
+    res.redirect(`http://localhost:${process.env.PORT}/api-docs`);
+  } else {
+    res.redirect(`/api-docs`);
+  }
 });
 
 app.listen(process.env.PORT, () => {
-  log.debug(`${process.env.MESSAGE} http://localhost:${process.env.PORT}`);
+  if (process.env.NODE_ENV === 'development') {
+    log.debug(`${process.env.MESSAGE} http://localhost:${process.env.PORT}`);
+  }
   log.debug(`Environment: ${process.env.NODE_ENV}`);
 });
