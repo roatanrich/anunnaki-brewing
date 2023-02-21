@@ -6,8 +6,8 @@
   "repository": "https://github.com/roatanrich/anunnaki-brewing",
   "license": "MIT",
   "engines": {
-    "node": "16.16.0",
-    "npm": "9.2.0"
+    "node": "16.x",
+    "npm": "9.x"
   },
   "keywords": [
     "typescript",
