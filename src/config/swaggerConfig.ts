@@ -22,13 +22,8 @@ const options: swaggerJsdoc.Options = {
     },
     components: {
       securitySchemes: {
-        // BasicAuth: {
-        //   type: 'http',
-        //   scheme: 'basic',
-        //   description:
-        //     'After logging to this site, you will be authenticated for api calls during a session',
-        // },
         BearerAuth: {
+          name: 'Authorization',
           type: 'http',
           scheme: 'bearer',
           in: 'header',

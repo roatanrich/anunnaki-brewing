@@ -9,8 +9,18 @@ import jwtMiddleware from '../authentication/jwt/jwtMiddlewareLib';
 import log from '../lib/loggerLib';
 
 const router = express.Router();
+router.use('/v1/api/categories', jwtMiddleware);
+router.use('/v1/api/categories/:name', jwtMiddleware);
+router.use('/v1/api/fermentables', jwtMiddleware);
+router.use('/v1/api/fermentables/:name', jwtMiddleware);
 router.use('/v1/api/hops', jwtMiddleware);
 router.use('/v1/api/hops/:name', jwtMiddleware);
+router.use('/v1/api/recipes', jwtMiddleware);
+router.use('/v1/api/recipes/:name', jwtMiddleware);
+router.use('/v1/api/styles', jwtMiddleware);
+router.use('/v1/api/styles/:name', jwtMiddleware);
+router.use('/v1/api/yeasts', jwtMiddleware);
+router.use('/v1/api/yeasts/:name', jwtMiddleware);
 
 /**
  * @openapi
@@ -230,7 +240,7 @@ router.get('/v1/api/recipes/:name', (req, res) => {
 
 /**
  * @openapi
- * /v1/api/beer-styles/:
+ * /v1/api/styles/:
  *   get:
  *     tags:
  *     - Brewing
@@ -246,7 +256,7 @@ router.get('/v1/api/recipes/:name', (req, res) => {
  *       500:
  *         description: Internal Server Error
  */
-router.get('/v1/api/beer-styles', (req, res) => {
+router.get('/v1/api/styles', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
   const maxResult: number = Number(process.env.MAX_RESULT);
   res.json(styleData.slice(0, maxResult));
@@ -254,7 +264,7 @@ router.get('/v1/api/beer-styles', (req, res) => {
 
 /**
  * @openapi
- * /v1/api/beer-styles/{name}:
+ * /v1/api/styles/{name}:
  *  get:
  *     tags:
  *     - Brewing
@@ -276,7 +286,7 @@ router.get('/v1/api/beer-styles', (req, res) => {
  *       404:
  *         description: Not found
  */
-router.get('/v1/api/beer-styles/:name', (req, res) => {
+router.get('/v1/api/styles/:name', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
   const result = styleData.filter((x: any) => x.name == req.params.name);
   res.json(result);
