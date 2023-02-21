@@ -29,15 +29,15 @@ const router = express.Router();
  *      - application/json
  *    responses:
  *      200:
- *        description: "Authorization token"
+ *        description: Authorization token
  *        content:
  *          application/json:
  *            schema:
  *              type: object
  *            example:
- *              "data": "token value"
+ *              data: token value
  *      401:
- *        description: "Unauthorized"
+ *        description: Unauthorized
  *
  */
 router.post('/v1/api/login', authController.loginUser);
@@ -48,12 +48,12 @@ router.post('/v1/api/login', authController.loginUser);
  *  get:
  *     tags:
  *     - Unsecured
- *     summary: Get a single hop by name
+ *     summary: Verifies a users token
  *     description: "Once a user has been authenticated, they can inspect the contents of the token using this API call. NOTE: For DEV and TEST environments only"
  *     parameters:
  *      - name: token
  *        in: path
- *        description: "The token received after a successful login"
+ *        description: The token received after a successful login
  *        required: true
  *     responses:
  *       200:
@@ -61,9 +61,9 @@ router.post('/v1/api/login', authController.loginUser);
  *         content:
  *          application/json:
  *           schema:
- *              type: 'string'
+ *              type: string
  *       400:
- *         description: "Invalid Token"
+ *         description: Invalid Token
  */
 router.get('/v1/api/verify/:token', (req, res) => {
   authController.inspectToken(req, res);

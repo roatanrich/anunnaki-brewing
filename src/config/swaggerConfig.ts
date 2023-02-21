@@ -34,7 +34,7 @@ const options: swaggerJsdoc.Options = {
           in: 'header',
           bearerFormat: 'JWT',
           description:
-            'After logging in to this site, you will be given a token which is then included in all api calls during a session.',
+            'After logging in to this site, you will be given a token which is then included in all api calls during a session. In the text box provided type: Bearer [paste token]',
         },
         // ApiKeyAuth: {
         //   type: 'apiKey',

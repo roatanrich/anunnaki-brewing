@@ -5,9 +5,12 @@ import hopData from '../../data/sample/hopData';
 import recipeData from '../../data/sample/recipeData';
 import styleData from '../../data/sample/styleData';
 import yeastData from '../../data/sample/yeastData';
+import jwtMiddleware from '../authentication/jwt/jwtMiddlewareLib';
 import log from '../lib/loggerLib';
 
 const router = express.Router();
+router.use('/v1/api/hops', jwtMiddleware);
+router.use('/v1/api/hops/:name', jwtMiddleware);
 
 /**
  * @openapi
@@ -16,6 +19,8 @@ const router = express.Router();
  *     tags:
  *     - Brewing
  *     summary: Get a list of all the beer categories
+ *     security:
+ *     - bearerAuth: []
  *     description: It will show all beer categories added to system
  *     produces:
  *     - application/json
@@ -38,6 +43,8 @@ router.get('/v1/api/categories', (req, res) => {
  *     tags:
  *     - Brewing
  *     summary: Get a single beer category by name
+ *     security:
+ *     - bearerAuth: []
  *     parameters:
  *      - name: name
  *        in: path
@@ -61,33 +68,13 @@ router.get('/v1/api/categories/:name', (req, res) => {
 
 /**
  * @openapi
- * /v1/api/hops/:
- *   get:
- *     tags:
- *     - Brewing
- *     summary: Get a list of all the hops
- *     description: It will show all hops added to system
- *     produces:
- *     - application/json
- *     responses:
- *       200:
- *         description: Ok
- *       500:
- *         description: Internal Server Error
- */
-router.get('/v1/api/hops', (req, res) => {
-  log.debug(`Executing route: ${req.route.path}`);
-  const maxResult: number = Number(process.env.MAX_RESULT);
-  res.json(hopData.slice(0, maxResult));
-});
-
-/**
- * @openapi
  * /v1/api/fermentables/:
  *   get:
  *     tags:
  *     - Brewing
  *     summary: Get a list of all the fermentables
+ *     security:
+ *     - bearerAuth: []
  *     description: It will show all fermentables added to system
  *     produces:
  *     - application/json
@@ -110,6 +97,8 @@ router.get('/v1/api/fermentables', (req, res) => {
  *     tags:
  *     - Brewing
  *     summary: Get a single fermentable by name
+ *     security:
+ *     - bearerAuth: []
  *     parameters:
  *      - name: name
  *        in: path
@@ -133,11 +122,37 @@ router.get('/v1/api/fermentables/:name', (req, res) => {
 
 /**
  * @openapi
+ * /v1/api/hops/:
+ *   get:
+ *     tags:
+ *     - Brewing
+ *     summary: Get a list of all the hops
+ *     security:
+ *     - bearerAuth: []
+ *     description: It will show all hops added to system
+ *     produces:
+ *     - application/json
+ *     responses:
+ *       200:
+ *         description: Ok
+ *       500:
+ *         description: Internal Server Error
+ */
+router.get('/v1/api/hops', (req, res) => {
+  log.debug(`Executing route: ${req.route.path}`);
+  const maxResult: number = Number(process.env.MAX_RESULT);
+  res.json(hopData.slice(0, maxResult));
+});
+
+/**
+ * @openapi
  * /v1/api/hops/{name}:
  *  get:
  *     tags:
  *     - Brewing
  *     summary: Get a single hop by name
+ *     security:
+ *     - bearerAuth: []
  *     parameters:
  *      - name: name
  *        in: path
@@ -166,6 +181,8 @@ router.get('/v1/api/hops/:name', (req, res) => {
  *     tags:
  *     - Brewing
  *     summary: Get a list of all the recipes
+ *     security:
+ *     - bearerAuth: []
  *     description: It will show all recipes added to system
  *     produces:
  *     - application/json
@@ -188,6 +205,8 @@ router.get('/v1/api/recipes', (req, res) => {
  *     tags:
  *     - Brewing
  *     summary: Get a single recipe by name
+ *     security:
+ *     - bearerAuth: []
  *     parameters:
  *      - name: name
  *        in: path
@@ -216,6 +235,8 @@ router.get('/v1/api/recipes/:name', (req, res) => {
  *     tags:
  *     - Brewing
  *     summary: Get a list of all the beer styles
+ *     security:
+ *     - bearerAuth: []
  *     description: It will show all beer styles added to system
  *     produces:
  *     - application/json
@@ -238,6 +259,8 @@ router.get('/v1/api/beer-styles', (req, res) => {
  *     tags:
  *     - Brewing
  *     summary: Get a single beer style by name
+ *     security:
+ *     - bearerAuth: []
  *     parameters:
  *      - name: name
  *        in: path
@@ -266,6 +289,8 @@ router.get('/v1/api/beer-styles/:name', (req, res) => {
  *     tags:
  *     - Brewing
  *     summary: Get a list of all the yeasts
+ *     security:
+ *     - bearerAuth: []
  *     description: It will show all yeasts added to system
  *     produces:
  *     - application/json
@@ -288,6 +313,8 @@ router.get('/v1/api/yeasts', (req, res) => {
  *     tags:
  *     - Brewing
  *     summary: Get a single yeast by name
+ *     security:
+ *     - bearerAuth: []
  *     parameters:
  *      - name: name
  *        in: path

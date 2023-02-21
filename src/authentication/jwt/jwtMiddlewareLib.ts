@@ -27,7 +27,7 @@ function jwtMiddleware(
       message: message,
     });
 
-  const requestHeader = 'X-JWT-Token';
+  const requestHeader = 'Authorization';
   const responseHeader = 'X-Renewed-JWT-Token';
   const secret: string = String(process.env.JWT_SECRET_KEY);
   const header = request.header(requestHeader);
@@ -37,7 +37,8 @@ function jwtMiddleware(
     return;
   }
 
-  const decodedSession: DecodeResultType = decodeSession(secret, header);
+  const bearerToken = header.slice(7);
+  const decodedSession: DecodeResultType = decodeSession(secret, bearerToken);
 
   if (
     decodedSession.type === 'integrity-error' ||

@@ -1,10 +1,11 @@
 import express from 'express';
 import fetch from 'node-fetch';
+import jwtMiddleware from '../authentication/jwt/jwtMiddlewareLib';
 import log from '../lib/loggerLib';
 import format from '../lib/stringFormatterLib';
 
 const router = express.Router();
-//router.use('/v1/api/crypto', jwtMiddleware);
+router.use('/v1/api/crypto', jwtMiddleware);
 
 //secured routes
 
@@ -15,6 +16,8 @@ const router = express.Router();
  *     tags:
  *     - Crypto
  *     summary: Gets a list of crypto prices
+ *     security:
+ *     - bearerAuth: []
  *     produces:
  *     - application/json
  *     responses:
@@ -25,6 +28,10 @@ const router = express.Router();
  */
 router.get('/v1/api/crypto', async (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
+
+  // The auth middleware protects this route and sets res.locals.session which can be accessed here
+  //const session: IJwtSession = res.locals.session;
+  //log.debug(`Session: ${session.username}`);
 
   //const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest';
   //const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=BTC,XRP,NEXO,NANO,DFI,ETH,SOL,DASH,AVAX,MATIC';
