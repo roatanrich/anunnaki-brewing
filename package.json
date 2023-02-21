@@ -20,11 +20,12 @@
   "scripts": {
     "cli": "ts-node src/cli.ts",
     "dev": "nodemon src/main.ts",
-    "start": "tsc -p tsconfig.json && node dist/tsc/src/main.js",
+    "start": "node dist/tsc/src/main.js",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
     "ts-node": "ts-node",
     "docs": "typedoc --entryPoints src/main.ts",
+    "old-start": "tsc -p tsconfig.json && node dist/tsc/src/main.js",
     "build": "tsc -p tsconfig.json",
     "build-all": "yarn clean && yarn build",
     "kill": "rm -rf node_modules",
