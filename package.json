@@ -5,6 +5,9 @@
   "author": "Rich Henry <architect.rich.henry@gmail.com>",
   "repository": "https://github.com/roatanrich/anunnaki-brewing",
   "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
   "keywords": [
     "typescript",
     "brewing",
@@ -25,7 +28,8 @@
     "build-all": "yarn clean && yarn build",
     "kill": "rm -rf node_modules",
     "kill-local": "del /s /q node_modules",
-    "clean": "rm -rf dist build package"
+    "clean": "rm -rf dist build package",
+    "heroku": "heroku local web"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.38",
