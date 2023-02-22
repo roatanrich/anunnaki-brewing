@@ -1,0 +1,13 @@
+{
+  "type": "mysql",
+  "host": "127.0.0.1",
+  "port": 3306,
+  "username": "rhenry",
+  "password": "Atilla455",
+  "database": "brewing",
+  "synchronize": true,
+  "logging": true,
+  "entities": ["src/data/entities/**/*.ts"],
+  "migrations": ["src/data/migrations/**/*.ts"],
+  "subscribers": ["src/data/subscribers/**/*.ts"]
+}

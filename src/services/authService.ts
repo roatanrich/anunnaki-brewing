@@ -1,5 +1,3 @@
-import userData from '../../data/sample/userData';
-import UserModel from '../../src/models/UserModel';
 import decodeSession from '../authentication/jwt/jwtDecodeLib';
 import encodeSession from '../authentication/jwt/jwtEncodeLib';
 import {
@@ -7,8 +5,10 @@ import {
   IEncodeResult,
   IJwtSession,
 } from '../authentication/jwt/jwtInterfaces';
+import userData from '../data/samples/userData';
 import dateDiff from '../lib/datetimeLib';
 import log from '../lib/loggerLib';
+import UserModel from '../models/UserModel';
 
 const authService = {
   async verifyUser(req: any) {

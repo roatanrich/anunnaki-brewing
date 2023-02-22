@@ -6,7 +6,7 @@
 [![Issues](https://img.shields.io/github/issues/roatanrich/annunaki-brewing)](https://github.com/roatanrich/annunaki-brewing/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/roatanrich/annunaki-brewing)](https://github.com/roatanrich/annunaki-brewing/stargazers)
 
-Click [here](https://anunnaki-brewing.herokuapp.com/api-docs/) to view the latest version
+Click [here](https://anunnaki-brewing.herokuapp.com/api-docs/) to view the latest deployed version of this app
 
 Making an atempt to remove the initial code and use [Fastify](https://www.fastify.io/)
 

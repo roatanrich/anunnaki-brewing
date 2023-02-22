@@ -1,12 +1,13 @@
 import express from 'express';
-import categoryData from '../../data/sample/categoryData';
-import fermentableData from '../../data/sample/fermentableData';
-import hopData from '../../data/sample/hopData';
-import recipeData from '../../data/sample/recipeData';
-import styleData from '../../data/sample/styleData';
-import yeastData from '../../data/sample/yeastData';
 import jwtMiddleware from '../authentication/jwt/jwtMiddlewareLib';
+import categoryData from '../data/samples/categoryData';
+import fermentableData from '../data/samples/fermentableData';
+import hopData from '../data/samples/hopData';
+import recipeData from '../data/samples/recipeData';
+import styleData from '../data/samples/styleData';
+import yeastData from '../data/samples/yeastData';
 import log from '../lib/loggerLib';
+import brewingService from '../services/brewingService';
 
 const router = express.Router();
 router.use('/v1/api/categories', jwtMiddleware);
@@ -150,8 +151,12 @@ router.get('/v1/api/fermentables/:name', (req, res) => {
  */
 router.get('/v1/api/hops', (req, res) => {
   log.debug(`Executing route: ${req.route.path}`);
-  const maxResult: number = Number(process.env.MAX_RESULT);
-  res.json(hopData.slice(0, maxResult));
+  //const maxResult: number = Number(process.env.MAX_RESULT);
+  //res.json(hopData.slice(0, maxResult));
+
+  const allHops = brewingService();
+
+  res.json(allHops);
 });
 
 /**
